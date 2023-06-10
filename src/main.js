@@ -1,5 +1,9 @@
+import './style.css';
+import 'material-icons/iconfont/material-icons.css';
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+
 import UiButton from 'keen-ui/src/UiButton.vue';
 import UiFab from 'keen-ui/src/UiFab.vue';
 import UiIcon from 'keen-ui/src/UiIcon.vue';

@@ -1,5 +1,9 @@
 # Kanban Board
 
+# TODO: 
+* Change UI library
+* Redo everything 
+* Implement better design 
 ## Project Requirements 
 
 *Create simple kanban board*
