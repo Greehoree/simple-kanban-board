@@ -1,29 +1,21 @@
-import './style.css';
-import 'material-icons/iconfont/material-icons.css';
-
 import { createApp } from 'vue'
+import ElementPlus from 'element-plus';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';;
+import 'element-plus/dist/index.css'
+import App from './App.vue';
+import './style.css';
+
 import { createPinia } from 'pinia'
-
-import UiButton from 'keen-ui/src/UiButton.vue';
-import UiFab from 'keen-ui/src/UiFab.vue';
-import UiIcon from 'keen-ui/src/UiIcon.vue';
-import UiIconButton from 'keen-ui/src/UiIconButton.vue';
-import UiModal from 'keen-ui/src/UiModal.vue';
-import UiSelect from 'keen-ui/src/UiSelect.vue';
-import UiTextbox from 'keen-ui/src/UiTextbox.vue';
-
-import App from './App.vue'
 
 const app = createApp(App)
 
 app.use(createPinia())
 
-app.component('UiButton', UiButton)
-app.component('UiFab', UiFab);
-app.component('UiIcon', UiIcon);
-app.component('UiIconButton', UiIconButton);
-app.component('UiModal', UiModal);
-app.component('UiSelect', UiSelect);
-app.component('UiTextbox', UiTextbox);
+app.use(ElementPlus);
 
-app.mount('#app')
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component);
+}
+
+
+app.mount('#app');

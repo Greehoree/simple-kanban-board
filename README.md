@@ -1,30 +1,28 @@
 # Kanban Board
 
 # TODO: 
-* Change UI library
-* Redo everything 
-* Implement better design 
+* Implement better design
 ## Project Requirements 
 
 *Create simple kanban board*
 
-1. Basic level: 
+1. ~~Basic level:~~
 
-* Page with 3 columns: "Open", "In progress", "Done".
-* "Create New Ticket" button.
-* Ticket should contain *Title*, *Status*, *next stage* and *prev stage*  buttons. 
+* Page with 3 columns: "Open", "In progress", "Done". :ballot_box_with_check:
+* "Create New Ticket" button. :ballot_box_with_check:
+* Ticket should contain *Title*, *Status*, *next stage* and *prev stage*  buttons. :ballot_box_with_check:
 
 2. Additional features: 
 
 * ~~Typescript support~~
-* Edit Ticket Form
+* Edit Ticket Form  :ballot_box_with_check:
 * LocalStorage integration
 * Implement Drag-and-drop
 * Add *Description*, *Edit*, *Delete*, buttons. 
 
 3. Extra features: 
 
-* Add Pinia Support.
+* Add Pinia Support. :ballot_box_with_check:
 * Add Database using Firebase.io.
 * Add Authorization using Firebase.io.
 * Add Multiple Kanban boards with multi-user acess. 

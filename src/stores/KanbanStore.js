@@ -7,16 +7,19 @@ export const useKanbanStore = defineStore("kanban",{
       {
         name: 'New Ticket',
         columnId: 'c1',
+        description: 'someDescr',
         id: 't1'
       },
       {
         name: 'New Ticket',
         columnId: 'c1',
+        description: 'someDescr',
         id: 't2'
       },
       {
         name: 'New Ticket',
         columnId: 'c1',
+        description: 'someDescr',
         id: 't3'
       }
     ],
@@ -52,15 +55,7 @@ export const useKanbanStore = defineStore("kanban",{
     }
   },
   actions: {
-    addNewTicket(ticketName) {
-      this.tickets.push({
-        name: ticketName,
-        id: uuidv4(),
-        columnId: 'c1'
-      })
-    },
     moveTicket(direction, ticketId) {
-      console.log(this.tickets);
      const ticket = this.tickets.find(ticket => ticket.id === ticketId);
      const columnIndex = this.columns.findIndex(column => ticket.columnId === column.id); 
      if (direction == 'right') {
@@ -68,6 +63,21 @@ export const useKanbanStore = defineStore("kanban",{
       } else if (direction == 'left') {
         ticket.columnId = this.columns[columnIndex-1].id;
      }
+    },
+    createTicket({name, description, status}) {
+      const ticket = {
+        description,
+        name: name,
+        columnId: status,
+        id: uuidv4()
+      }
+      this.tickets.push(ticket);
+    },
+    editTicket(newTicket) {
+      let ticketObject = this.tickets.find(ticket => ticket.id === newTicket.id);
+      ticketObject.columnId = newTicket.status;
+      ticketObject.description = newTicket.description;
+      ticketObject.name = newTicket.name;
     }
   }
 });

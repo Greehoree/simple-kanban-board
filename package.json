@@ -10,11 +10,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "autosize": "^6.0.1",
+    "element-plus": "^2.3.6",
     "fuzzysearch": "^1.0.3",
-    "keen-ui": "^1.4.0",
     "material-icons": "^1.13.8",
     "pinia": "^2.0.36",
+    "uuid": "^9.0.0",
     "vue": "^3.3.2"
   },
   "devDependencies": {

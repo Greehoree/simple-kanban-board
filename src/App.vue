@@ -1,6 +1,6 @@
 <template>
-  <the-header></the-header>
-  <kanban-board></kanban-board>
+    <the-header></the-header>
+    <kanban-board></kanban-board>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import KanbanBoard from './components/kanban/KanbanBoard.vue';
 export default {
   components: {
     TheHeader,
-    KanbanBoard
+    KanbanBoard,
   }
 }
 </script>

@@ -1,42 +1,41 @@
 <template>
-  <div class="column">
-    <header>
-      <h3> {{ title }}</h3>
-    </header>
-    <div class="tickets-container">
-      <slot>
-
-      </slot>
-      <!-- <KanbanTicket v-for="ticket in tickets" :key="ticket.title" :title="ticket.title" :status="title"></KanbanTicket> -->
-    </div>
-  </div>
+  <el-container>
+    <el-header>
+      <h2>{{ title }}</h2>
+    </el-header>
+    <el-main>
+      <kanban-ticket v-for="ticket in tickets" :key="ticket.id" :isLast="isLast" :column="column" :isFirst="isFirst" :ticket="ticket"></kanban-ticket>
+    </el-main>
+</el-container>
 </template>
 
 <script>
-// import KanbanTicket from './KanbanTicket.vue'
+import KanbanTicket from './KanbanTicket.vue';
+import { useKanbanStore } from '../../stores/KanbanStore';
 
 export default {
-  components: {
-    // KanbanTicket
+  setup() {
+    const kanbanStore = useKanbanStore();
+    return {kanbanStore};
   },
-  props: ['title']
+  components: {
+    KanbanTicket
+  },
+  props: ['title', 'tickets', 'column'],
+  computed: {
+    isLast() {
+      return this.kanbanStore.lastColumn.id === this.column.id;
+    },
+    isFirst() {
+      return this.kanbanStore.firstColumn.id === this.column.id;
+    }
+  }
 }
 </script>
 
 <style scoped>
-.column {
-  border: 2px solid black;
-  min-height: 600px;
-  min-width: 300px;
-}
-header {
-  border: 3px dashed black;
-  margin-bottom: 1rem;
-}
-.tickets-container {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem;
-  
+.el-container {
+  border-radius: 4px;
+  background: #d3dce6;
 }
 </style>
