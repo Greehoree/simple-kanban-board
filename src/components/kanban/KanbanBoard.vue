@@ -1,12 +1,14 @@
 <template>
   <!--TODO: add base-card component -->
-  <div class="common-layout">
+  <div>
+      <el-main>
         <el-row :gutter="20" justify="space-between">
-          <el-col :span="6"  v-for="column in kanbanData" :key="column.id">
+          <el-col :span="8"  v-for="column in kanbanData" :key="column.id">
             <kanban-column :title="column.title" :tickets="column.tickets" :column="column">
             </kanban-column>
           </el-col>
         </el-row>
+      </el-main>
   </div>
 </template>
 

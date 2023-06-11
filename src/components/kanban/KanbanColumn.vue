@@ -4,7 +4,7 @@
       <h2>{{ title }}</h2>
     </el-header>
     <el-main>
-      <kanban-ticket v-for="ticket in tickets" :key="ticket.id" :isLast="isLast" :column="column" :isFirst="isFirst" :ticket="ticket"></kanban-ticket>
+        <kanban-ticket v-for="ticket in tickets" :key="ticket.id"  :isLast="isLast" :column="column" :isFirst="isFirst" :ticket="ticket"></kanban-ticket>
     </el-main>
 </el-container>
 </template>
@@ -37,5 +37,13 @@ export default {
 .el-container {
   border-radius: 4px;
   background: #d3dce6;
+  padding-top: 20px;
+  min-height: 400px;
+}
+.el-main {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 </style>

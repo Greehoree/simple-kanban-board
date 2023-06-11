@@ -14,9 +14,10 @@
       </el-form-item>
     </el-form>
     <template #footer>
+      <el-button @click="$emit('close')">Cancel</el-button>
+      <el-button v-if="mode == 'edit'" type="danger" @click="deleteTicket">Delete Ticket</el-button>
       <el-button v-if="mode == 'new'" type="primary" @click="createTicket">Create</el-button>
       <el-button v-else type="primary" @click="editTicket">Edit</el-button>
-      <el-button >Cancel</el-button>
     </template>
   </el-dialog>
 </template>
@@ -39,34 +40,28 @@ export default {
         description: '',
         status: 'c1',
       },
-      kanbanColumns: [
-      {
-        title: 'Open',
-        id: 'c1'
-      },
-      {
-        title: 'In Process',
-        id: 'c2'
-      },
-      {
-        title: 'Done',
-        id: 'c3'
-      },
-    ]
     };
   },
   methods: {
     createTicket() {
       this.kanbanStore.createTicket(this.ticketData);
+      this.resetForm();
+      this.$emit('close');
+    },
+    editTicket(){
+      this.kanbanStore.editTicket({...this.ticketData, id: this.editableTicket.id});
+      this.resetForm();
+      this.$emit('close');
+    },
+    deleteTicket(){
+      this.kanbanStore.deleteTicket(this.editTicket.id);
+    },
+    resetForm() {
       this.ticketData = {
         name:'',
         description: '',
         status: 'c1',
       };
-      this.$emit('close');
-    },
-    editTicket(){
-      this.kanbanStore.editTicket({...this.ticketData, id: this.editableTicket.id});
     }
   },
   computed: {
@@ -78,6 +73,9 @@ export default {
       } else {
         throw new Error('Invalid Mode');
       }
+    },
+    kanbanColumns() {
+      return this.kanbanStore.columns;
     }
   },
   created() {

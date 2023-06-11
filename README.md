@@ -16,7 +16,7 @@
 
 * ~~Typescript support~~
 * Edit Ticket Form  :ballot_box_with_check:
-* LocalStorage integration
+* LocalStorage integration :ballot_box_with_check:
 * Implement Drag-and-drop
 * Add *Description*, *Edit*, *Delete*, buttons. 
 

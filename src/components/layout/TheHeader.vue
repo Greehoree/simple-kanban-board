@@ -2,7 +2,7 @@
   <header>
     <h2>Kanban Board</h2>
     <div class="actions">
-      <el-button @click="addNewTicket" type="primary" icon="Plus" >Add ticket</el-button>
+      <el-button @click="addNewTicket" type="primary" icon="Plus" size="large">Add ticket</el-button>
     </div>
     <TicketForm @close="isModalOpen = false" :isOpen="isModalOpen" mode="new"></TicketForm>
   </header>

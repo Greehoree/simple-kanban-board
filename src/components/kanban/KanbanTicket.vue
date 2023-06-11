@@ -1,22 +1,23 @@
 <template>
   <el-card>
     <header>
-      <h5>
+      <h3>
         {{ ticket.name }}
-      </h5>
+      </h3>
       <div class="header-actions">
         <el-button icon="Edit" @click="openModal" size="small" circle></el-button>
+        <el-button icon="Delete" @click="deleteTicket" size="small" circle type="danger"></el-button>
       </div>
     </header>
-    <div>
-      <p class="description">
+    <div class="ticket-body">
+      <p>
         {{ ticket.description }}
       </p>
     </div>
     <footer>
-      <h5>Status: <el-text :type="statusColor"> {{ column.title }}</el-text></h5>
       <div class="actions">
         <el-button @click="moveLeft" :disabled="isFirst" icon="Back" size="small" circle></el-button>
+        <p>Status: <el-text :type="statusColor"> {{ column.title }}</el-text></p>
         <el-button @click="moveRight" :disabled="isLast" icon="Right" size="small" circle></el-button>
       </div>
     </footer>
@@ -70,6 +71,9 @@ export default {
     },
     openModal() {
       this.isModalOpen = true;
+    },
+    deleteTicket() {
+      this.kanbanStore.deleteTicket(this.ticket.id);
     }
   }
 
@@ -80,6 +84,7 @@ export default {
 header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 .ticket-container {
   background-color: rgba(0,0,0, .2);
@@ -89,7 +94,8 @@ header {
   justify-content: space-between;
 }
 
-.description {
-  font-size: 14px;
+.ticket-body {
+  margin-bottom: 2rem;
+  overflow-wrap: break-word;
 }
 </style>
