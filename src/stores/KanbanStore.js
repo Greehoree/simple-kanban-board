@@ -38,7 +38,8 @@ export const useKanbanStore = defineStore("kanban",{
         title: 'Done',
         id: 'c3'
       },
-    ]
+    ],
+    dragableKludge: null,
   }),
   getters: {
     kanbanData() {
@@ -98,6 +99,16 @@ export const useKanbanStore = defineStore("kanban",{
       if (localKanbanState && localKanbanState.tickets && localKanbanState.columns) {
         this.columns = localKanbanState.columns;
         this.tickets = localKanbanState.tickets;
+      }
+    },
+    setDraggableKludge(itemId) {
+      this.dragableKludge = itemId;
+    },
+    dragTicket(columnId) {
+      if (this.dragableKludge) {
+        const ticket = this.tickets.find(ticket => ticket.id === this.dragableKludge);
+        ticket.columnId = columnId;
+        this.dragableKludge = null;
       }
     }
   }

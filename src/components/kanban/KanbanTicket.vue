@@ -1,28 +1,28 @@
 <template>
-  <el-card>
-    <header>
-      <h3>
-        {{ ticket.name }}
-      </h3>
-      <div class="header-actions">
-        <el-button icon="Edit" @click="openModal" size="small" circle></el-button>
-        <el-button icon="Delete" @click="deleteTicket" size="small" circle type="danger"></el-button>
+    <el-card :ticket-id="ticket.id">
+      <header>
+        <h3>
+          {{ ticket.name }}
+        </h3>
+        <div class="header-actions">
+          <el-button icon="Edit" @click="openModal" size="small" circle></el-button>
+          <el-button icon="Delete" @click="deleteTicket" size="small" circle type="danger"></el-button>
+        </div>
+      </header>
+      <div class="ticket-body">
+        <p>
+          {{ ticket.description }}
+        </p>
       </div>
-    </header>
-    <div class="ticket-body">
-      <p>
-        {{ ticket.description }}
-      </p>
-    </div>
-    <footer>
-      <div class="actions">
-        <el-button @click="moveLeft" :disabled="isFirst" icon="Back" size="small" circle></el-button>
-        <p>Status: <el-text :type="statusColor"> {{ column.title }}</el-text></p>
-        <el-button @click="moveRight" :disabled="isLast" icon="Right" size="small" circle></el-button>
-      </div>
-    </footer>
-    <TicketForm @close="isModalOpen = false" :isOpen="isModalOpen" mode="edit" :editableTicket="modalData"></TicketForm>
-  </el-card>
+      <footer>
+        <div class="actions">
+          <el-button @click="moveLeft" :disabled="isFirst" icon="Back" size="small" circle></el-button>
+          <p>Status: <el-text :type="statusColor"> {{ column.title }}</el-text></p>
+          <el-button @click="moveRight" :disabled="isLast" icon="Right" size="small" circle></el-button>
+        </div>
+      </footer>
+      <TicketForm @close="isModalOpen = false" :isOpen="isModalOpen" mode="edit" :editableTicket="modalData"></TicketForm>
+    </el-card>
 </template>
 
 <script>
@@ -63,7 +63,6 @@ export default {
   },
   methods: {
     moveRight() {
-      console.log('ticket',this.ticket);
       this.kanbanStore.moveTicket('right', this.ticket.id);
     },
     moveLeft() {

@@ -2,6 +2,8 @@
 
 # TODO: 
 * Implement better design
+* Change data formats in order to better fit for vuedraggable
+  * Change items to array. 
 ## Project Requirements 
 
 *Create simple kanban board*
@@ -17,8 +19,8 @@
 * ~~Typescript support~~
 * Edit Ticket Form  :ballot_box_with_check:
 * LocalStorage integration :ballot_box_with_check:
-* Implement Drag-and-drop
-* Add *Description*, *Edit*, *Delete*, buttons. 
+* Implement Drag-and-drop :ballot_box_with_check: 
+* Add *Description*, *Edit*, *Delete*, buttons. :ballot_box_with_check:
 
 3. Extra features: 
 
@@ -48,6 +50,9 @@ const ticket = {
 ```
 
 ## Advanced structure 
+
+~~TODO: Change to storing data as arrays of tickets~~
+*Reason:* draging implementation working on really poor fix atm.
 
 1. Components 
  * The header should contain burger element with following options:
