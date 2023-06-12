@@ -8,7 +8,7 @@
 
 *Create simple kanban board*
 
-1. ~~Basic level:~~
+1. Basic level: :ballot_box_with_check:
 
 * Page with 3 columns: "Open", "In progress", "Done". :ballot_box_with_check:
 * "Create New Ticket" button. :ballot_box_with_check:
@@ -51,8 +51,8 @@ const ticket = {
 
 ## Advanced structure 
 
-~~TODO: Change to storing data as arrays of tickets~~
-*Reason:* draging implementation working on really poor fix atm.
+*TODO:* _Change to storing data as arrays of tickets_
+*Reason:* The drag and drop solution is very poorly implemented 
 
 1. Components 
  * The header should contain burger element with following options:
